@@ -1,0 +1,86 @@
+.nav-bar {
+  height: 80px;
+  padding: 25px 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #272727;
+  width: 100%;
+}
+
+.nav-logo {
+  width: 100px;
+  height: 30px;
+}
+
+.login-mobile-routes {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 0px;
+  margin-left: auto;
+  display: none;
+}
+
+.login-routes {
+  display: flex;
+  list-style-type: none;
+}
+
+@media screen and (max-width: 568px) {
+  .nav-bar {
+    height: 50px;
+    padding: 15px 25px;
+    background-size: cover;
+  }
+  .nav-logo {
+    width: 60px;
+    height: 20px;
+  }
+  .nav-item {
+    display: none;
+  }
+
+  .login-mobile-routes {
+    display: block;
+    margin-left: 60px;
+  }
+  .logout-button {
+    display: none;
+  }
+
+  .login-routes {
+    display: none;
+  }
+}
+
+.link-decor {
+  text-decoration: none;
+  margin-right: 17px;
+  color: #ffffff;
+}
+
+.logout-logo {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+}
+
+.logout-button {
+  background-color: #4f46e5;
+  border: none;
+  padding: 7px 30px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}

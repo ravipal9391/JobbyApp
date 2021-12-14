@@ -1,0 +1,96 @@
+.job-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #272727;
+  padding: 30px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+.logo-title-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.company-logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 4px;
+}
+
+.title-rating-card {
+  margin-left: 13px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-top: 0px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  color: #ffffff;
+}
+.star {
+  color: yellow;
+  margin-right: 4px;
+  font-size: 20px;
+}
+
+.icon {
+  color: #f8fafc;
+  margin-right: 4px;
+  font-size: 20px;
+}
+.location-employment-package-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+}
+
+.location-employment-card {
+  display: flex;
+  align-items: center;
+}
+.location-employment {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.hr-lined {
+  border: 1px solid #64748b;
+  background-color: #64748b;
+  width: 100%;
+  margin-bottom: 8px;
+  margin-top: 3px;
+}
+
+.description-head {
+  font-size: 20px;
+  font-weight: 500;
+  color: #f8fafc;
+  margin-top: 0px;
+  margin-bottom: 12px;
+}
+
+.description {
+  margin-top: 3px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f8fafc;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
