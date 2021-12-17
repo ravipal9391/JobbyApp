@@ -104,7 +104,7 @@ export default class Jobs extends Component {
     }
     const response = await fetch(jobsUrl, options)
     const data = await response.json()
-    // console.log(data.jobs)
+    console.log(response)
     if (response.ok === true) {
       const updatedJobs = data.jobs.map(item => ({
         id: item.id,
@@ -120,8 +120,7 @@ export default class Jobs extends Component {
         jobDetails: updatedJobs,
         apiJobsStatus: apiStatusConstants.success,
       })
-    }
-    if (response.status === 404) {
+    } else {
       this.setState({
         apiJobsStatus: apiStatusConstants.failure,
       })
@@ -140,7 +139,7 @@ export default class Jobs extends Component {
     ) : (
       <div className="no-jobs-view">
         <img
-          src="https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-no-products-view.png"
+          src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
           className="no-products-img"
           alt="no jobs"
         />
@@ -174,13 +173,20 @@ export default class Jobs extends Component {
     <div className="product-details-failure-view-container">
       <img
         alt="failure view"
-        src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png"
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
         className="failure-view-image"
       />
-      <h1 className="product-not-found-heading">Product Not Found</h1>
-      <button type="button" className="retry-button" onClick={this.renderJobs}>
-        Retry
-      </button>
+      <h1 className="product-not-found-heading">Oops! Something Went Wrong</h1>
+      <p>We cannot seem to find the page you are looking for</p>
+      <div>
+        <button
+          type="button"
+          className="retry-button"
+          onClick={this.renderJobs}
+        >
+          Retry
+        </button>
+      </div>
     </div>
   )
 
@@ -272,7 +278,7 @@ export default class Jobs extends Component {
               {this.renderProfileDetails()}
             </div>
             <hr className="hr-line" />
-            <h1 className="filter-headings">Types Of Employment</h1>
+            <h1 className="filter-headings">Type Of Employment</h1>
             <ul className="employment-types">
               {employmentTypesList.map(item => (
                 <EmploymentType

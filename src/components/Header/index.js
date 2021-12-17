@@ -22,13 +22,19 @@ function Header(props) {
       </Link>
 
       <ul className="login-mobile-routes">
-        <Link to="/" className="link-decor">
-          <AiFillHome className="logout-logo" />
-        </Link>
-        <Link to="/jobs" className="link-decor">
-          <BsBriefcaseFill className="logout-logo" />
-        </Link>
-        <FiLogOut className="logout-logo" onClick={onClickLogout} />
+        <li>
+          <Link to="/" className="link-decor">
+            <AiFillHome className="logout-logo" />
+          </Link>
+        </li>
+        <li>
+          <Link to="/jobs" className="link-decor">
+            <BsBriefcaseFill className="logout-logo" />
+          </Link>
+        </li>
+        <li>
+          <FiLogOut className="logout-logo" onClick={onClickLogout} />
+        </li>
       </ul>
 
       <ul className="login-routes">

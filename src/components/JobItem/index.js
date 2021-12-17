@@ -17,8 +17,8 @@ const JobItem = props => {
     title,
   } = item
   return (
-    <Link to={`/jobs/${id}`} className="job-link">
-      <li className="job-card">
+    <li className="job-card">
+      <Link to={`/jobs/${id}`} className="job-link">
         <div className="logo-title-card">
           <img
             src={companyLogoUrl}
@@ -29,7 +29,7 @@ const JobItem = props => {
             <h1 className="title">{title}</h1>
             <span className="rating">
               <AiFillStar className="star" />
-              {rating}
+              <p>{rating}</p>
             </span>
           </div>
         </div>
@@ -38,11 +38,11 @@ const JobItem = props => {
             <div className="location-employment-card">
               <div className="location-employment">
                 <MdLocationOn className="icon" />
-                <span>{location}</span>
+                <p>{location}</p>
               </div>
               <div className="location-employment">
                 <BsBriefcaseFill className="icon" />
-                <span>{employmentType}</span>
+                <p>{employmentType}</p>
               </div>
             </div>
             <p>{packagePerAnnum}</p>
@@ -51,8 +51,8 @@ const JobItem = props => {
           <h1 className="description-head">Description</h1>
           <p className="description">{jobDescription}</p>
         </div>
-      </li>
-    </Link>
+      </Link>
+    </li>
   )
 }
 

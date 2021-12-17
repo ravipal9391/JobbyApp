@@ -134,7 +134,7 @@ export default class JobItemDetails extends Component {
               <h1 className="title">{title}</h1>
               <span className="rating">
                 <AiFillStar className="star" />
-                {rating}
+                <p>{rating}</p>
               </span>
             </div>
           </div>
@@ -143,11 +143,11 @@ export default class JobItemDetails extends Component {
               <div className="location-employment-card">
                 <div className="location-employment">
                   <MdLocationOn className="icon" />
-                  <span>{location}</span>
+                  <p>{location}</p>
                 </div>
                 <div className="location-employment">
                   <BsBriefcaseFill className="icon" />
-                  <span>{employmentType}</span>
+                  <p>{employmentType}</p>
                 </div>
               </div>
               <p>{packagePerAnnum}</p>
@@ -155,14 +155,15 @@ export default class JobItemDetails extends Component {
             <hr className="hr-lined" />
             <div className="descrip-link-row">
               <h1 className="description-head">Description</h1>
-              <Link
-                to={companyWebsiteUrl}
+              <a
+                href={companyWebsiteUrl}
                 target="_blank"
                 className="external-website-link"
+                rel="noreferrer"
               >
-                <span>Visit</span>
+                <p>Visit</p>
                 <FiExternalLink />
-              </Link>
+              </a>
             </div>
             <p className="description">{jobDescription}</p>
             <h1 className="job-items-headings">Skills</h1>
@@ -279,7 +280,7 @@ const SimilarJobs = props => {
   return (
     <li className="similar-card">
       <Link to={`/jobs/${id}`} className="job-link">
-        <div className="similar-logo logo-title-card">
+        <div className=" similar-logo logo-title-card">
           <img
             src={companyLogoUrl}
             alt="similar job company logo"
@@ -289,7 +290,7 @@ const SimilarJobs = props => {
             <h1 className="similar-title title">{title}</h1>
             <span className="rating">
               <AiFillStar className="star" />
-              {rating}
+              <p className="similar-job-icons-heads">{rating}</p>
             </span>
           </div>
         </div>
@@ -299,11 +300,11 @@ const SimilarJobs = props => {
           <div className="similar-location location-employment-card">
             <div className="location-employment">
               <MdLocationOn className="icon" />
-              <span className="similar-job-icons-heads">{location}</span>
+              <p className="similar-job-icons-heads">{location}</p>
             </div>
             <div className="location-employment">
               <BsBriefcaseFill className="icon" />
-              <span className="similar-job-icons-heads">{employmentType}</span>
+              <p className="similar-job-icons-heads">{employmentType}</p>
             </div>
           </div>
         </div>

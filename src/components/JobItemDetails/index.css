@@ -47,19 +47,20 @@
 
 .title-rating-card {
   margin-left: 13px;
+  margin-top: 3px;
 }
 
 .title {
   font-size: 18px;
   font-weight: 600;
   color: #f8fafc;
-  margin-top: 0px;
+  margin-top: 1px;
+  margin-bottom: 0px;
 }
 
 .rating {
   display: flex;
   align-items: center;
-  padding: 3px;
   color: #ffffff;
 }
 .star {
