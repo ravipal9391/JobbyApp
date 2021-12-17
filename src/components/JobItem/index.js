@@ -22,7 +22,7 @@ const JobItem = props => {
         <div className="logo-title-card">
           <img
             src={companyLogoUrl}
-            alt="companyLogo"
+            alt="company logo"
             className="company-logo"
           />
           <div className="title-rating-card">

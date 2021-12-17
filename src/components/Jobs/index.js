@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {BiSearch} from 'react-icons/bi'
+import {BsSearch} from 'react-icons/bs'
 import Header from '../Header'
 import JobItem from '../JobItem'
 import './index.css'
@@ -259,7 +259,14 @@ export default class Jobs extends Component {
                 className="input-search"
                 onChange={this.onChangeSearch}
               />
-              <BiSearch className="search-icon" onClick={this.onClickSearch} />
+              <button
+                type="button"
+                testid="searchButton"
+                className="search-button"
+                onClick={this.onClickSearch}
+              >
+                <BsSearch className="search-icon" />
+              </button>
             </span>
             <div className="profile-container">
               {this.renderProfileDetails()}
@@ -297,7 +304,16 @@ export default class Jobs extends Component {
                 className="input-search"
                 onChange={this.onChangeSearch}
               />
-              <BiSearch className="search-icon" onClick={this.onClickSearch} />
+              <button
+                type="button"
+                testid="searchButton"
+                className="search-button"
+              >
+                <BsSearch
+                  className="search-icon"
+                  onClick={this.onClickSearch}
+                />
+              </button>
             </span>
             <div className="job-cards-container">{this.renderJobDetails()}</div>
           </div>

@@ -153,13 +153,18 @@
   width: 80%;
 }
 
-.search-icon {
+.search-button {
   background-color: #64748b;
-  color: #ffffff;
-  font-size: 30px;
-  align-self: flex-end;
-  cursor: pointer;
+  border-width: 0px;
   width: 20%;
+}
+
+.search-icon {
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 25px;
+  align-self: center;
+  cursor: pointer;
 }
 
 .job-cards-container {

@@ -16,7 +16,7 @@ function Header(props) {
       <Link to="/" className="link-decor">
         <img
           src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-          alt="nav-logo"
+          alt="website logo"
           className="nav-logo"
         />
       </Link>

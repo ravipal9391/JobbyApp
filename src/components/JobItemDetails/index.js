@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {AiFillStar} from 'react-icons/ai'
@@ -9,13 +9,20 @@ import {FiExternalLink} from 'react-icons/fi'
 import Header from '../Header'
 import './index.css'
 
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN_PROGRESS',
+}
+
 export default class JobItemDetails extends Component {
   state = {
     jobItem: {},
-    isLoading: false,
     similarJobs: [],
     skills: [],
     lifeAtCompany: {},
+    apiJobItemStatus: apiStatusConstants.initial,
   }
 
   componentDidMount() {
@@ -46,8 +53,10 @@ export default class JobItemDetails extends Component {
   })
 
   getJobItem = async () => {
-    this.setState({isLoading: true})
-    const {match, history} = this.props
+    this.setState({
+      apiJobItemStatus: apiStatusConstants.inProgress,
+    })
+    const {match} = this.props
     // console.log(this.props)
     const {params} = match
     const {id} = params
@@ -85,10 +94,10 @@ export default class JobItemDetails extends Component {
         similarJobs: updatedSimilarObjects,
         lifeAtCompany: updatedLifeAtCompany,
         skills: updatedSkill,
-        isLoading: false,
+        apiJobItemStatus: apiStatusConstants.success,
       })
     } else {
-      history.replace('/notfound')
+      this.setState({apiJobItemStatus: apiStatusConstants.failure})
     }
   }
 
@@ -118,7 +127,7 @@ export default class JobItemDetails extends Component {
           <div className="logo-title-card">
             <img
               src={companyLogoUrl}
-              alt="companyLogo"
+              alt="job details company logo"
               className="company-logo"
             />
             <div className="title-rating-card">
@@ -167,7 +176,7 @@ export default class JobItemDetails extends Component {
               <p className="life-at-company-descript description">
                 {lifeAtCompany.description}
               </p>
-              <img src={lifeAtCompany.imageUrl} alt="lifeAtCompany" />
+              <img src={lifeAtCompany.imageUrl} alt="life at company" />
             </div>
           </div>
         </div>
@@ -196,14 +205,43 @@ export default class JobItemDetails extends Component {
     </div>
   )
 
+  renderFailureView = () => (
+    <div className="product-details-failure-view-container">
+      <img
+        alt="failure view"
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        className="failure-view-image"
+      />
+      <h1 className="product-not-found-heading">Oops! Something Went Wrong</h1>
+      <p>We cannot seem to find the page you are looking for</p>
+      <button type="button" className="retry-button" onClick={this.getJobItem}>
+        Retry
+      </button>
+    </div>
+  )
+
+  renderJobItemDetails = () => {
+    const {apiJobItemStatus} = this.state
+
+    switch (apiJobItemStatus) {
+      case apiStatusConstants.success:
+        return this.renderJobItem()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
+  }
+
   render() {
-    const {isLoading} = this.state
     return (
       <div>
         <Header />
         <div className="job-item-details-container">
           <div className="job-item-container">
-            {isLoading ? this.renderLoadingView() : this.renderJobItem()}
+            {this.renderJobItemDetails()}
           </div>
         </div>
       </div>
@@ -211,6 +249,7 @@ export default class JobItemDetails extends Component {
   }
 }
 
+// Skills Component
 const Skill = props => {
   const {skill} = props
   console.log(skill)
@@ -236,33 +275,39 @@ const SimilarJobs = props => {
     title,
   } = similar
 
-  const redirectToOther = () => <Redirect to={`/jobs/${id}`} />
+  //   const redirectToOther = () => <Redirect to={`/jobs/${id}`} />
   return (
-    <li className="similar-card" onClick={redirectToOther}>
-      <div className="similar-logo logo-title-card">
-        <img src={companyLogoUrl} alt="companyLogo" className="company-logo" />
-        <div className="title-rating-card">
-          <h1 className="similar-title title">{title}</h1>
-          <span className="rating">
-            <AiFillStar className="star" />
-            {rating}
-          </span>
-        </div>
-      </div>
-      <div>
-        <h1 className="description-head">Description</h1>
-        <p className="similar-descrip description">{jobDescription}</p>
-        <div className="similar-location location-employment-card">
-          <div className="location-employment">
-            <MdLocationOn className="icon" />
-            <span className="similar-job-icons-heads">{location}</span>
-          </div>
-          <div className="location-employment">
-            <BsBriefcaseFill className="icon" />
-            <span className="similar-job-icons-heads">{employmentType}</span>
+    <li className="similar-card">
+      <Link to={`/jobs/${id}`} className="job-link">
+        <div className="similar-logo logo-title-card">
+          <img
+            src={companyLogoUrl}
+            alt="similar job company logo"
+            className="company-logo"
+          />
+          <div className="title-rating-card">
+            <h1 className="similar-title title">{title}</h1>
+            <span className="rating">
+              <AiFillStar className="star" />
+              {rating}
+            </span>
           </div>
         </div>
-      </div>
+        <div>
+          <h1 className="description-head">Description</h1>
+          <p className="similar-descrip description">{jobDescription}</p>
+          <div className="similar-location location-employment-card">
+            <div className="location-employment">
+              <MdLocationOn className="icon" />
+              <span className="similar-job-icons-heads">{location}</span>
+            </div>
+            <div className="location-employment">
+              <BsBriefcaseFill className="icon" />
+              <span className="similar-job-icons-heads">{employmentType}</span>
+            </div>
+          </div>
+        </div>
+      </Link>
     </li>
   )
 }
