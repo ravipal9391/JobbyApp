@@ -42,7 +42,7 @@
   }
 
   .login-mobile-routes {
-    display: block;
+    display: flex;
     margin-left: 60px;
   }
   .logout-button {
