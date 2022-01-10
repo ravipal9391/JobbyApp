@@ -41,10 +41,6 @@
     display: none;
   }
 
-  .login-mobile-routes {
-    display: flex;
-    margin-left: 60px;
-  }
   .logout-button {
     display: none;
   }
