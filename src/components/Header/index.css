@@ -13,8 +13,13 @@
   height: 30px;
 }
 
-.login-mobile-routes {
-  display: none;
+@media screen and (min-width: 569px) {
+  .login-mobile-routes {
+    display: none;
+    list-style-type: none;
+    padding: 0px;
+    margin-left: 60px;
+  }
 }
 
 .login-routes {
@@ -39,10 +44,6 @@
   .login-mobile-routes {
     display: flex;
     align-items: center;
-    list-style-type: none;
-    padding: 0px;
-    margin-left: auto;
-    margin-left: 60px;
   }
 
   .logout-button {
