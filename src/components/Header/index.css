@@ -14,11 +14,6 @@
 }
 
 .login-mobile-routes {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-  padding: 0px;
-  margin-left: auto;
   display: none;
 }
 
@@ -43,6 +38,10 @@
 
   .login-mobile-routes {
     display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding: 0px;
+    margin-left: auto;
     margin-left: 60px;
   }
 
