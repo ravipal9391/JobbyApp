@@ -63,7 +63,7 @@ export default class Login extends Component {
             </label>
             <input
               id="username"
-              value={username}
+              value="rahul"
               type="text"
               placeholder="Username"
               className="input-text"
@@ -76,7 +76,7 @@ export default class Login extends Component {
             </label>
             <input
               id="password"
-              value={password}
+              value="rahul@2021"
               type="password"
               placeholder="Password"
               className="input-text"
